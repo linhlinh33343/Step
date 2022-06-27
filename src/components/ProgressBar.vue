@@ -1,22 +1,22 @@
 <template>
     <div class="progress">
         <div :style="{width: progressWidth() +'%'}" class="progress-done">
-            {{Math.round((this.currentStep / 3) *100)}}%
+            {{Math.round((this.currentStep / this.getLengthFormStep) *100)}}%
         </div>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState,mapGetters } from 'vuex'
 export default {
     name:'ProgressBar',
     computed:{
         ...mapState(['currentStep']),
-        
+        ...mapGetters(['getLengthFormStep'])
     },
     methods:{
         progressWidth(){
-            return Math.round((this.currentStep / 3) *100)
+            return Math.round((this.currentStep / this.getLengthFormStep) *100)
         }
     }
     

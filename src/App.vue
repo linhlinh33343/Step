@@ -1,27 +1,25 @@
 <template>
   <div>
     <ProgressBar/>
-    <TitleVue/>
-    <FormStep/>
-      
-    
-   
+    <StepTitle/>
+    <InputField/>
+    <ButtonForm/>
   </div>
   
 </template>
 
 <script>
+import StepTitle from './components/StepTitle.vue'
+import InputField from './components/InputForm/InputField.vue'
 import ProgressBar from './components/ProgressBar.vue'
-import TitleVue from './components/Title.vue'
-import FormStep from './components/FormStep.vue'
-
-
+import ButtonForm from './components/ButtonForm.vue'
 export default {
   name: 'App',
   components: {
+    StepTitle,
+    InputField,
     ProgressBar,
-    FormStep,
-    TitleVue,
+    ButtonForm
   }
 }
 </script>
@@ -46,4 +44,13 @@ body{
   margin-top: 60px;
 
 }
+.step__wrap {
+        width: 900px;
+        margin: auto;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgb(0 0 0 / 20%), 6px 12px 20px rgb(0 0 0 / 10%);
+        margin-top: 15px;
+        padding: 20px;
+    }
 </style>

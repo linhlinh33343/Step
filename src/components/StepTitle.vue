@@ -1,37 +1,31 @@
 <template>
   <div class="step__wrap wrap-title ">
-    <div :class="['title',currentStep==1?'active':'',  ]">
-        <span class="title-number">1</span>
-        <span class="title-text">About</span>
-    </div>
-    <div :class="['title',currentStep==2?'active':'']">
-        <span class="title-number">2</span>
-        <span class="title-text">About your Company</span>
-    </div>
-    <div :class="['title',currentStep==3?'active':'']">
-        <span class="title-number">3</span>
-        <span class="title-text">Finishing Up</span>
+    <div class="" v-for="step in getformStep" :key="step.stepId" :class="['title',{active:step.stepId == currentStep}]" >
+        <span class="title-number">{{step.stepId}}</span>
+        <label class="title-text">{{step.stepName}}</label>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+
+import { mapGetters,mapState } from 'vuex';
 
 export default {
-    name:'TitleVue',
-    computed:{
+    name:'StepTitle',
+     computed: {
         ...mapState(['currentStep']),
-        
+        ...mapGetters(['getformStep'])
     },
     methods:{
-        
+              
     }
 
 }
 </script>
 
 <style>
+    
     .wrap-title{
         display: flex;
         justify-content: space-between;
@@ -57,7 +51,7 @@ export default {
 
     }
     
-    span.title-text {
+    label.title-text {
         color: #8f9294;
         font-size: 14px;
         font-weight: 500;
